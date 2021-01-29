@@ -1,0 +1,29 @@
+{
+  "name": "chat-guard-bot",
+  "version": "1.0.0",
+  "description": "Discord sunucuları için chat guard  botu",
+  "main": "chat-guard.js",
+  "scripts": {
+    "test": "node chat-guard.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KlanterV/chat-guard.git"
+  },
+  "keywords": [
+    "discord-bot",
+    "discord",
+    "discord.js",
+    "Serendia"
+  ],
+  "author": "Klanter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KlanterV/chat-guard"
+  },
+  "homepage": "https://github.com/KlanterV/chat-guard#readme",
+  "dependencies": {
+    "@aloshai/mongosha": "^1.1.5",
+    "discord.js": "^12.5.1"
+  }
+}
