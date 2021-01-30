@@ -14,4 +14,4 @@
 * Hepsini Doldurup kaydettikden sonra botun klasörüne geri gelin.
 * shift + sağ tık tuşlarına aynı anda basın karşınıza çıkan seçeneklerde PowerShell penceresini burda açın bulun ve tıklayın.
 * Karşınıza bir terminal açılır tek yazmanız gereken `npm install` ve modüllerin kurulmasını bekleyin.
-* Modüller kuruldukdan sonra terminali kapatabilirsiniz tekrar botun klasörüne gelin ve  `start.bat` adlı dosyayı çalıştırın artık botunuz aktif.
+* Modüller kuruldukdan sonra terminali kapatabilirsiniz tekrar botun klasörüne gelin ve  `start.bat` adlı dosyayı çalıştırın artık botunuz aktif güle güle kullanın.
