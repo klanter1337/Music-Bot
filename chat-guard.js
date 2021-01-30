@@ -1,4 +1,4 @@
-""""""""""const {Client, Attachment, Collection, MessageEmbed } = require("discord.js")
+const {Client, Attachment, Collection, MessageEmbed } = require("discord.js")
 const client = new Client({ disableEveryone: true});
 const { DatabaseManager } = require("@aloshai/mongosha");
 const config = require('./config.json');
