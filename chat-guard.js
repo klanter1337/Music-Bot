@@ -377,4 +377,177 @@ db.get(`whitelist.${newMessage.author.id}`).then(whitelist => {
      if (!kufur) return; 
      if (kufur == 'acik') {
       if (array.some(kelime => ` ${newMessage.content.toLowerCase()} `.includes(` ${kelime} `))) {
-        if(newMessage.deletable) newMessage.delete({timeout: 0020}).catch(console.error); return newMessage.reply('Küfür etmen yasak lütfen küfür içerikli mesaj atmamaya dikkat et.').then
+        if(newMessage.deletable) newMessage.delete({timeout: 0020}).catch(console.error); return newMessage.reply('Küfür etmen yasak lütfen küfür içerikli mesaj atmamaya dikkat et.').then(a => a.delete({timeout: 5000}))}
+    }
+        else if (kufur == 'kapali') {
+          if (!kufur) return;  
+}})})})
+
+
+        
+
+client.on("message", async message => {
+  if (message.author.bot) return;
+
+   if (message.member.hasPermission('ADMINISTRATOR')) return;
+   db.get(`whitelist.${message.author.id}`).then(whitelist => {
+    if(whitelist === 1) return;
+   db.get(`etiketkoruma.${message.guild.id}`).then(etiketkoruma => {
+    if (!etiketkoruma) return;  
+    if (etiketkoruma == 'acik') {
+    if (message.mentions.users.size >= 4) { 
+
+      if(message.deletable) message.delete({timeout: 0030}).catch(console.error);
+        message.channel.send(`Lütfen insanları etiketleme.`);
+    
+    }
+  }
+  else if (etiketkoruma == 'kapali') {
+  }})})});
+
+client.on("messageUpdate", async(oldMessage, newMessage) => { 
+  if (newMessage.author.bot) return;
+  if (newMessage.member.hasPermission('ADMINISTRATOR')) return;
+   db.get(`whitelist.${newMessage.author.id}`).then(whitelist => {
+    if(whitelist === 1) return;
+   db.get(`etiketkoruma.${newMessage.guild.id}`).then(etiketkoruma => {
+    if (!etiketkoruma) return;  
+    if (etiketkoruma == 'acik') {
+    if (newMessage.mentions.users.size >= config.maxetikelnicekkisi) { 
+      if(newMessage.deletable) newMessage.delete({timeout: 0030}).catch(console.error);
+      newMessage.channel.send(`Lütfen insanları etiketleme.`);
+    }
+  }
+  else if (etiketkoruma == 'kapali') {
+  }})})});
+
+
+client.on("message", async message => {
+  if(message.author.bot) return;
+  if(message.member.hasPermission("ADMINISTRATOR")) return;
+ db.get(`whitelist.${message.author.id}`).then(whitelist => {
+  if(whitelist === 1) return;
+ db.get(`capskoruma.${message.guild.id}`).then(capskoruma => {
+  if (!capskoruma) return;  
+  if (capskoruma == 'acik') {
+  if(message.content.length > 5) {
+  let capslock = message.content.toUpperCase()
+  if(message.content == capslock) {
+  if(!message.mentions.users.first()) {
+    if(message.deletable) message.delete({timeout: 0040}).catch(console.error);
+  return message.channel.send(`${message.author}, Lütfen bağırma.`).then(a => a.delete({timeout: 5000}))
+  }
+  else if (capskoruma == 'kapali') {
+   }}}}})})});
+
+   client.on("messageUpdate", async(oldMessage, newMessage) => { 
+      if(newMessage.author.bot) return;
+      if(newMessage.member.hasPermission("ADMINISTRATOR")) return;
+     db.get(`whitelist.${newMessage.author.id}`).then(whitelist => {
+      if(whitelist === 1) return;
+     db.get(`capskoruma.${newMessage.guild.id}`).then(capskoruma => {
+      if (!capskoruma) return;  
+      if (capskoruma == 'acik') {
+      if(newMessage.content.length > 5) {
+      let capslock = newMessage.content.toUpperCase()
+      if(newMessage.content == capslock) {
+      if(!newMessage.mentions.users.first()) {
+        if(newMessage.deletable) newMessage.delete({timeout: 0040}).catch(console.error);
+      return newMessage.channel.send(`${newMessage.author}, Lütfen bağırma.`).then(a => a.delete({timeout: 5000}))
+      }
+      else if (capskoruma == 'kapali') {
+       }}}}})})});
+
+
+
+const usersMap = new Map();
+const LIMIT = 5;
+const TIME = 10000;
+const DIFF = 2000;
+
+client.on('message', async message => {
+ if(message.author.bot) return;
+ if(message.member.hasPermission("ADMINISTRATOR")) return;
+
+ db.get(`whitelist.${message.author.id}`).then(whitelist => {
+  if(whitelist === 1) return;
+ db.get(`spamkoruma.${message.guild.id}`).then(spamkoruma => {
+  if (!spamkoruma) return;
+  if (spamkoruma == 'acik') {
+ if(usersMap.has(message.author.id)) {
+const userData = usersMap.get(message.author.id);
+const {lastMessage, timer} = userData;
+const difference = message.createdTimestamp - lastMessage.createdTimestamp;
+let msgCount = userData.msgCount;
+
+if(difference > DIFF) {
+clearTimeout(timer);
+userData.msgCount = 1;
+userData.lastMessage = message;
+userData.timer = setTimeout(() => {
+  usersMap.delete(message.author.id);
+}, TIME);
+usersMap.set(message.author.id, userData)
+}
+else{
+msgCount++;
+if(parseInt(msgCount) === LIMIT) {
+    const mutedrole = message.guild.roles.cache.get(config.mutedrole)
+     message.member.roles.add(mutedrole);
+     message.channel.send("Spam  yaptığından dolayı 15 dakika boyunca susturuldun.");
+
+setTimeout(() => {
+  message.member.roles.remove(mutedrole);
+  message.channel.send("Muten açıldı lütfen tekrar spam yapma.")
+}, 9000000);//9000000
+    }else {
+  userData.msgCount = msgCount;
+  usersMap.set(message.author.id, userData)
+}}}
+ else{
+let fn = setTimeout(() => {
+  usersMap.delete(message.author.id)
+}, TIME);
+usersMap.set(message.author.id, {
+msgCount: 1,
+lastMessage: message,
+timer: fn
+})}}
+  else if (spamkoruma == 'kapali') {
+}})})});
+
+
+client.on('message', async message => {
+  if(message.author.bot) return;
+  if(message.member.hasPermission("ADMINISTRATOR")) return;
+  db.get(`whitelist.${message.author.id}`).then(whitelist => {
+    if(whitelist === 1) return;
+  db.get(`karakterkoruma.${message.guild.id}`).then(karakterkoruma => {
+    if (!karakterkoruma) return;
+    if (karakterkoruma == 'acik') {
+  if(message.content.length > "500") {
+    if(message.deletable)  message.delete({timeout: 0050}).catch(console.error) 
+    return message.channel.send(`Lütfen mesajınızı 500 karakterden az yazınız`).then(a => a.delete({timeout: 5000}))
+  }
+  else if (karakterkoruma == 'kapali') {
+  }}})})});
+
+  client.on("messageUpdate", async(oldMessage, newMessage) => { 
+      if(newMessage.author.bot) return;
+      if(newMessage.member.hasPermission("ADMINISTRATOR")) return;
+      db.get(`whitelist.${newMessage.author.id}`).then(whitelist => {
+        if(whitelist === 1) return;
+      db.get(`karakterkoruma.${newMessage.guild.id}`).then(karakterkoruma => {
+        if (!karakterkoruma) return;
+        if (karakterkoruma == 'acik') {
+      if(newMessage.content.length > "500") {
+        if(newMessage.deletable)  newMessage.delete({timeout: 0050}).catch(console.error); 
+        return newMessage.channel.send(`Lütfen mesajınızı 500 karakterden az yazınız`).then(a => a.delete({timeout: 5000}))
+      }
+      else if (karakterkoruma == 'kapali') {
+      }}})})});
+
+
+
+
+     
