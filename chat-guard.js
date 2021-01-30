@@ -388,7 +388,7 @@ db.get(`whitelist.${newMessage.author.id}`).then(whitelist => {
 
 client.on("message", async message => {
   if (message.author.bot) return;
-
+if(message.member.roles.cache.get(config.mutedrole)) return;
    if (message.member.hasPermission('ADMINISTRATOR')) return;
    db.get(`whitelist.${message.author.id}`).then(whitelist => {
     if(whitelist === 1) return;
@@ -412,6 +412,7 @@ client.on("message", async message => {
 client.on("messageUpdate", async(oldMessage, newMessage) => { 
   if (newMessage.author.bot) return;
   if (newMessage.member.hasPermission('ADMINISTRATOR')) return;
+  if(newMessage.member.roles.cache.get(config.mutedrole)) return;
    db.get(`whitelist.${newMessage.author.id}`).then(whitelist => {
     if(whitelist === 1) return;
    db.get(`etiketkoruma.${newMessage.guild.id}`).then(etiketkoruma => {
@@ -481,7 +482,7 @@ const DIFF = 2000;
 client.on('message', async message => {
  if(message.author.bot) return;
  if(message.member.hasPermission("ADMINISTRATOR")) return;
-
+ if(message.member.roles.cache.get(config.mutedrole)) return;
  db.get(`whitelist.${message.author.id}`).then(whitelist => {
   if(whitelist === 1) return;
  db.get(`spamkoruma.${message.guild.id}`).then(spamkoruma => {
