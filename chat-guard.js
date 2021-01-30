@@ -1,5 +1,6 @@
 const {Client, Attachment, Collection, MessageEmbed } = require("discord.js")
 const client = new Client({ disableEveryone: true});
+const ms = require("ms");
 const { DatabaseManager } = require("@aloshai/mongosha");
 const config = require('./config.json');
 DatabaseManager.connect(config.MONGOCONNECTURL)
@@ -395,11 +396,15 @@ client.on("message", async message => {
    db.get(`etiketkoruma.${message.guild.id}`).then(etiketkoruma => {
     if (!etiketkoruma) return;  
     if (etiketkoruma == 'acik') {
-    if (message.mentions.users.size >= 5) { 
-
+    if (message.mentions.users.size >= 10) { 
+        const mutedrole = message.guild.roles.cache.get(config.mutedrole)
+         message.member.roles.add(mutedrole);
+         message.channel.send("Birden çok kişiyi etiketlediğin için 15 dakika boyunca susturuldun.");
+    setTimeout(() => {
+      message.member.roles.remove(mutedrole);
+      message.channel.send("Muten açıldı lütfen tekrar insanları etiketleme.")
+    }, 900000);//9000000
       if(message.deletable) message.delete({timeout: 0030}).catch(console.error);
-        message.channel.send(`Lütfen insanları etiketleme.`);
-    
     }
   }
   else if (etiketkoruma == 'kapali') {
@@ -413,7 +418,14 @@ client.on("messageUpdate", async(oldMessage, newMessage) => {
    db.get(`etiketkoruma.${newMessage.guild.id}`).then(etiketkoruma => {
     if (!etiketkoruma) return;  
     if (etiketkoruma == 'acik') {
-    if (newMessage.mentions.users.size >= 5) { 
+    if (newMessage.mentions.users.size >= 10) { 
+      const mutedrole = message.guild.roles.cache.get(config.mutedrole)
+      newMessage.member.roles.add(mutedrole);
+      newMessage.channel.send("Birden çok kişiyi etiketlediğin için 15 dakika boyunca susturuldun.");
+ setTimeout(() => {
+  newMessage.member.roles.remove(mutedrole);
+   newMessage.channel.send("Muten açıldı lütfen tekrar insanları etiketleme.")
+ }, 900000);//9000000
       if(newMessage.deletable) newMessage.delete({timeout: 0030}).catch(console.error);
       newMessage.channel.send(`Lütfen insanları etiketleme.`);
     }
@@ -433,7 +445,8 @@ client.on("message", async message => {
   if(message.content.length > 5) {
   let capslock = message.content.toUpperCase()
   if(message.content == capslock) {
-  if(!message.mentions.users.first()) {
+  if(!message.mentions.users.first())
+  if(!message.mentions.channels.first()) {
     if(message.deletable) message.delete({timeout: 0040}).catch(console.error);
   return message.channel.send(`${message.author}, Lütfen bağırma.`).then(a => a.delete({timeout: 5000}))
   }
@@ -451,7 +464,8 @@ client.on("message", async message => {
       if(newMessage.content.length > 5) {
       let capslock = newMessage.content.toUpperCase()
       if(newMessage.content == capslock) {
-      if(!newMessage.mentions.users.first()) {
+      if(!newMessage.mentions.users.first()) 
+      if(!newMessage.mentions.channels.first()) {
         if(newMessage.deletable) newMessage.delete({timeout: 0040}).catch(console.error);
       return newMessage.channel.send(`${newMessage.author}, Lütfen bağırma.`).then(a => a.delete({timeout: 5000}))
       }
@@ -494,12 +508,13 @@ msgCount++;
 if(parseInt(msgCount) === LIMIT) {
     const mutedrole = message.guild.roles.cache.get(config.mutedrole)
      message.member.roles.add(mutedrole);
+     if(message.member.roles.cache.get(config.mutedrole)) return;
      message.channel.send("Spam  yaptığından dolayı 15 dakika boyunca susturuldun.");
 
 setTimeout(() => {
   message.member.roles.remove(mutedrole);
   message.channel.send("Muten açıldı lütfen tekrar spam yapma.")
-}, 9000000);//9000000
+}, 900000);//9000000
     }else {
   userData.msgCount = msgCount;
   usersMap.set(message.author.id, userData)
