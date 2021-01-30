@@ -20,4 +20,4 @@
 * `prefix+komutlar` Yazarak tüm komutlar ve kullanımlarını görebilirsin.
 * Whitelist'e eklediğin kullanıcılar engellenmiyecek'lerini unutma.
 * Açık veya Kapalı korumaları görmek için `prefix+korumalar` yazabilirsin.
-! [Örnek](https://prnt.sc/xu7rck.png)
+* [Örnek](https://prnt.sc/xu7rck.png)
