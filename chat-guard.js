@@ -442,7 +442,7 @@ client.on("messageUpdate", async(oldMessage, newMessage) => {
    db.get(`capskoruma.${message.guild.id}`).then(capskoruma => {
     if (!capskoruma) return;  
     if (capskoruma == 'acik') {
-    if(message.content.length > 5) {
+    if(message.content.length > 15) {
     let capslock = message.content.toUpperCase()
     if(message.content == capslock) {
       const a = /(1|2|3|4|5|6|7|8|9|0)/
@@ -463,7 +463,7 @@ client.on("messageUpdate", async(oldMessage, newMessage) => {
      db.get(`capskoruma.${newMessage.guild.id}`).then(capskoruma => {
       if (!capskoruma) return;  
       if (capskoruma == 'acik') {
-      if(newMessage.content.length > 5) {
+      if(newMessage.content.length > 15) {
       let capslock = newMessage.content.toUpperCase()
       if(newMessage.content == capslock) {
         const a = /(1|2|3|4|5|6|7|8|9|0)/
