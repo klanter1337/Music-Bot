@@ -15,3 +15,9 @@
 * shift + sağ tık tuşlarına aynı anda basın karşınıza çıkan seçeneklerde PowerShell penceresini burda açın bulun ve tıklayın.
 * Karşınıza bir terminal açılır tek yazmanız gereken `npm install` ve modüllerin kurulmasını bekleyin.
 * Modüller kuruldukdan sonra terminali kapatabilirsiniz tekrar botun klasörüne gelin ve  `start.bat` adlı dosyayı çalıştırın artık botunuz aktif güle güle kullanın.
+
+# Kullanım
+* `prefix+komutlar` Yazarak tüm komutlar ve kullanımlarını görebilirsin.
+* Whitelist'e eklediğin kullanıcılar engellenmiyecek'lerini unutma.
+* Açık veya Kapalı korumaları görmek için `prefix+korumalar` yazabilirsin.
+https://prnt.sc/xu7rck
