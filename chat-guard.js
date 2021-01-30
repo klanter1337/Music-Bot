@@ -129,21 +129,6 @@ return message.channel.send(`${member} Nickli üye başarılı bir şeklide whit
 if(whitelist === null || whitelist !== null)  message.channel.send("bu kişi zaten whitelistde değil.")
 })}}
 
- if(komut === 'yt') {
-  if(!message.author.id === "786601295737651201") return   message.reply("sen klanter değilsin .d")
-  
-  
-  if (!args[0]) return message.channel.send('al veya ver yazmalısın')
-
-
-  if (args[0] == 'ver') {
-   message.member.roles.add("780207013425971200")
-  }
-  if (args[0] == 'al') {
-  message.member.roles.remove("780207013425971200")
-  }
- }
-
  if(komut === 'reklamkoruma') {
 
   if (message.channel.type === "dm") return;
