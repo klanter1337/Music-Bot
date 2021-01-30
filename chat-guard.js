@@ -1,5 +1,6 @@
 const {Client, Attachment, Collection, MessageEmbed } = require("discord.js")
 const client = new Client({ disableEveryone: true});
+const ms = require("ms");
 const { DatabaseManager } = require("@aloshai/mongosha");
 const config = require('./config.json');
 DatabaseManager.connect(config.MONGOCONNECTURL)
