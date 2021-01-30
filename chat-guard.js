@@ -395,7 +395,7 @@ client.on("message", async message => {
    db.get(`etiketkoruma.${message.guild.id}`).then(etiketkoruma => {
     if (!etiketkoruma) return;  
     if (etiketkoruma == 'acik') {
-    if (message.mentions.users.size >= 4) { 
+    if (message.mentions.users.size >= 5) { 
 
       if(message.deletable) message.delete({timeout: 0030}).catch(console.error);
         message.channel.send(`Lütfen insanları etiketleme.`);
@@ -413,7 +413,7 @@ client.on("messageUpdate", async(oldMessage, newMessage) => {
    db.get(`etiketkoruma.${newMessage.guild.id}`).then(etiketkoruma => {
     if (!etiketkoruma) return;  
     if (etiketkoruma == 'acik') {
-    if (newMessage.mentions.users.size >= config.maxetikelnicekkisi) { 
+    if (newMessage.mentions.users.size >= 5) { 
       if(newMessage.deletable) newMessage.delete({timeout: 0030}).catch(console.error);
       newMessage.channel.send(`Lütfen insanları etiketleme.`);
     }
