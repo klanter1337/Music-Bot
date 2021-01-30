@@ -434,24 +434,26 @@ client.on("messageUpdate", async(oldMessage, newMessage) => {
   }})})});
 
 
-client.on("message", async message => {
-  if(message.author.bot) return;
-  if(message.member.hasPermission("ADMINISTRATOR")) return;
- db.get(`whitelist.${message.author.id}`).then(whitelist => {
-  if(whitelist === 1) return;
- db.get(`capskoruma.${message.guild.id}`).then(capskoruma => {
-  if (!capskoruma) return;  
-  if (capskoruma == 'acik') {
-  if(message.content.length > 5) {
-  let capslock = message.content.toUpperCase()
-  if(message.content == capslock) {
-  if(!message.mentions.users.first())
-  if(!message.mentions.channels.first()) {
-    if(message.deletable) message.delete({timeout: 0040}).catch(console.error);
-  return message.channel.send(`${message.author}, Lütfen bağırma.`).then(a => a.delete({timeout: 5000}))
-  }
-  else if (capskoruma == 'kapali') {
-   }}}}})})});
+  client.on("message", async message => {
+    if(message.author.bot) return;
+    if(message.member.hasPermission("ADMINISTRATOR")) return;
+   db.get(`whitelist.${message.author.id}`).then(whitelist => {
+    if(whitelist === 1) return;
+   db.get(`capskoruma.${message.guild.id}`).then(capskoruma => {
+    if (!capskoruma) return;  
+    if (capskoruma == 'acik') {
+    if(message.content.length > 5) {
+    let capslock = message.content.toUpperCase()
+    if(message.content == capslock) {
+      const a = /(1|2|3|4|5|6|7|8|9|0)/
+      if(message.content.match(a)) return;
+    if(!message.mentions.users.first())
+    if(!message.mentions.channels.first()) {
+      if(message.deletable) message.delete({timeout: 0040}).catch(console.error);
+    return message.channel.send(`${message.author}, Lütfen bağırma.`).then(a => a.delete({timeout: 5000}))
+    }
+    else if (capskoruma == 'kapali') {
+     }}}}})})});
 
    client.on("messageUpdate", async(oldMessage, newMessage) => { 
       if(newMessage.author.bot) return;
@@ -464,6 +466,8 @@ client.on("message", async message => {
       if(newMessage.content.length > 5) {
       let capslock = newMessage.content.toUpperCase()
       if(newMessage.content == capslock) {
+        const a = /(1|2|3|4|5|6|7|8|9|0)/
+      if(newMessage.content.match(a)) return;
       if(!newMessage.mentions.users.first()) 
       if(!newMessage.mentions.channels.first()) {
         if(newMessage.deletable) newMessage.delete({timeout: 0040}).catch(console.error);
