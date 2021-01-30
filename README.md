@@ -1,4 +1,5 @@
 # Kurulum
+* [Videolu Anlatım](https://www.youtube.com/watch?v=DaDENunZ-kw&feature) Bilgisayarınıza Node programını kurun.
 * [Node.JS](https://nodejs.org/en/) Bilgisayarınıza Node programını kurun.
 * Botu çalıştırabilmek için bir mongo bağlantısı almalısınız. [anlatım](https://youtu.be/yG6105VL8H4)
 * Yeşil Code butonuna basın ve Downland zip seçeneğine tıklayın indirme işlemini bekleyin.
