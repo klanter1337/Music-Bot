@@ -325,7 +325,7 @@ if(komut === 'mesajlimit') {
       db.get(`reklam.${message.guild.id}`).then(reklamm => {
         if (!reklamm) return;
         if (reklamm == 'acik') {
-          const reklamlink = ["discord.gg","discord.comm/invite","discordapp.com/invite","https://"]
+          const reklamlink = ["discord.gg","discord.com/invite","discordapp.com/invite","https://"]
              if (reklamlink.some(word => message.content.includes(word))) {
               if(message.deletable) message.delete({timeout: 0010}).catch(console.error); return message.reply('Reklam yapman yasak lütfen reklam yapmamaya dikkat et !').then(a => a.delete({timeout: 5000}))}
          
@@ -443,8 +443,8 @@ client.on("messageUpdate", async(oldMessage, newMessage) => {
     if (!capskoruma) return;  
     if (capskoruma == 'acik') {
     if(message.content.length > 15) {
-    let capslock = message.content.toUpperCase()
-    if(message.content == capslock) {
+    let caps = message.content.toUpperCase()
+    if(message.content == caps) {
       const a = /(1|2|3|4|5|6|7|8|9|0)/
       if(message.content.match(a)) return;
     if(!message.mentions.users.first())
@@ -464,8 +464,8 @@ client.on("messageUpdate", async(oldMessage, newMessage) => {
       if (!capskoruma) return;  
       if (capskoruma == 'acik') {
       if(newMessage.content.length > 15) {
-      let capslock = newMessage.content.toUpperCase()
-      if(newMessage.content == capslock) {
+      let caps = newMessage.content.toUpperCase()
+      if(newMessage.content == caps) {
         const a = /(1|2|3|4|5|6|7|8|9|0)/
       if(newMessage.content.match(a)) return;
       if(!newMessage.mentions.users.first()) 
