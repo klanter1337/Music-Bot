@@ -513,12 +513,12 @@ if(parseInt(msgCount) === LIMIT) {
     const mutedrole = message.guild.roles.cache.get(config.mutedrole)
      message.member.roles.add(mutedrole);
      if(message.member.roles.cache.get(config.mutedrole)) return;
-     message.channel.send("Spam  yaptığından dolayı 15 dakika boyunca susturuldun.");
+     message.channel.send("Spam  yaptığından dolayı 15 dakika boyunca susturuldun.").then(a => a.delete({timeout: 5000}))
 
 setTimeout(() => {
   if(!message.member.roles.cache.get(config.mutedrole)) return;
   message.member.roles.remove(mutedrole);
-  message.channel.send("Muten açıldı lütfen tekrar spam yapma.")
+  message.channel.send("Muten açıldı lütfen tekrar spam yapma.").then(a => a.delete({timeout: 5000}))
 }, 900000);//9000000
     }else {
   userData.msgCount = msgCount;
