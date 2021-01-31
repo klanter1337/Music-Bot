@@ -516,6 +516,7 @@ if(parseInt(msgCount) === LIMIT) {
      message.channel.send("Spam  yaptığından dolayı 15 dakika boyunca susturuldun.");
 
 setTimeout(() => {
+  if(!message.member.roles.cache.get(config.mutedrole)) return;
   message.member.roles.remove(mutedrole);
   message.channel.send("Muten açıldı lütfen tekrar spam yapma.")
 }, 900000);//9000000
