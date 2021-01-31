@@ -1,4 +1,5 @@
 # Kurulum
+* BOTDA HATALAR GÖZDEN KAÇIRDIĞIM BİR YER OLABİLİR LÜTFEN BUNU BANA BİLDİRİN Kİ DÜZELTEBİLEYİM
 * [Videolu Anlatım](https://www.youtube.com/watch?v=DaDENunZ-kw&feature) 
 * [Node.JS](https://nodejs.org/en/) Bilgisayarınıza Node programını kurun.
 * Botu çalıştırabilmek için bir mongo bağlantısı almalısınız. [anlatım](https://youtu.be/yG6105VL8H4)
