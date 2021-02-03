@@ -27,7 +27,7 @@ client.on("message", message => {
 .setAuthor(message.member.user.username, message.member.user.displayAvatarURL({dynamic: true, format: "png", size: 1024}))
 .addField('⚔️ - Komutlar Ve Kullanımları',`
   **Whitelist** = __${config.prefix}whitelist ekle/kaldır @user/userid__
-  **Reklam koruma** = __${config.prefix}reklamakoruma aç/kapat__
+  **Link koruma** = __${config.prefix}reklamakoruma aç/kapat__
   **Küfür koruma** = __${config.prefix}küfürkoruma aç/kapat__
   **Spam koruma** = __${config.prefix}spamkoruma aç/kapat__
   **Caps koruma** = __${config.prefix}capskoruma aç/kapat__
@@ -83,7 +83,7 @@ message.channel.send(komutlarembed)
 .setAuthor(message.member.user.username, message.member.user.displayAvatarURL({dynamic: true, format: "png", size: 1024}))
 .addField('⚔️ - Korumalar',`
 
-  **Reklam koruma**: ${reklamaktif}
+  **Link koruma**: ${reklamaktif}
   **Küfür koruma**: ${kufuraktif}
   **Spam koruma**: ${spamaktif}
   **Caps koruma**: ${capsaktif}
@@ -129,7 +129,7 @@ return message.channel.send(`${member} Nickli üye başarılı bir şeklide whit
 if(whitelist === null || whitelist !== null)  message.channel.send("bu kişi zaten whitelistde değil.")
 })}}
 
- if(komut === 'reklamkoruma') {
+ if(komut === 'linkkoruma') {
 
   if (message.channel.type === "dm") return;
   if (message.author.bot) return;
@@ -142,17 +142,17 @@ if (args[0] == 'aç')
 db.get(`reklam.${message.guild.id}`).then(reklamm => {
 
 if (reklamm == 'acik') {
- return  message.channel.send('Reklam koruma zaten açık.')}
+ return  message.channel.send('Link koruma zaten açık.')}
 
 
   db.set(`reklam.${message.guild.id}`, 'acik').then(reklamm => {
-  message.channel.send('Reklam koruma açıldı!')})}) 
+  message.channel.send('Link koruma açıldı!')})}) 
         
  if (args[0] == 'kapat') {
 
   db.get(`reklam.${message.guild.id}`).then(reklamm => {
     if (reklamm == 'kapali') {
-      message.channel.send('Reklam koruma zaten kapalı.')}
+      message.channel.send('Link koruma zaten kapalı.')}
    
    if (reklamm == 'acik') {
 
