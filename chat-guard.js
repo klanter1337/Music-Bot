@@ -325,6 +325,7 @@ if(komut === 'mesajlimit') {
       db.get(`reklam.${message.guild.id}`).then(reklamm => {
         if (!reklamm) return;
         if (reklamm == 'acik') {
+            // const regexplink = /(http[s]?:\/\/)(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/gi;
           const reklamlink = ["discord.gg","discord.com/invite","discordapp.com/invite","https://"]
              if (reklamlink.some(word => message.content.includes(word))) {
               if(message.deletable) message.delete({timeout: 0010}).catch(console.error); return message.reply('Reklam yapman yasak lütfen reklam yapmamaya dikkat et !').then(a => a.delete({timeout: 5000}))}
@@ -342,6 +343,7 @@ if(komut === 'mesajlimit') {
       db.get(`reklam.${newMessage.guild.id}`).then(reklamm => {
         if (!reklamm) return;  
          if (reklamm == 'acik') {
+             // const regexplink = /(http[s]?:\/\/)(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/gi;
              const reklamlink = ["discord.gg","discord.comm/invite","discordapp.com/invite","https://"]
              if (reklamlink.some(word => newMessage.content.includes(word))) {
                if(newMessage.deletable) newMessage.delete({timeout: 0010}).catch(console.error); return newMessage.reply('Reklam yapman yasak lütfen reklam yapmamaya dikkat et !').then(a => a.delete({timeout: 5000}))}
