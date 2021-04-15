@@ -4,7 +4,6 @@ const { DatabaseManager } = require("@aloshai/mongosha");
 const config = require('./config.json');
 DatabaseManager.connect(config.MONGOCONNECTURL)
 const db = DatabaseManager.getDatabase("CHATGUARD")
-//HERHANGİ BİR HATA İLE KARŞILAŞIRSANIZ Klanter#9898 NİCKLİ DISCORD HESABIMA YAZABİLİRSİNİZ
 
 
 
