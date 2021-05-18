@@ -1,0 +1,25 @@
+{
+  "name": "discord-music-bot",
+  "author": "Klanter",
+  "license": "ISC",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "a"
+  },
+  "dependencies": {
+    "@discordjs/opus": "^0.3.3",
+    "discord-player": "^3.3.2",
+    "discord.js": "^12.5.1",
+    "ffmpeg-static": "^4.3.0"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}
