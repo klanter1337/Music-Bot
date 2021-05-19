@@ -1,12 +1,11 @@
 const { MessageEmbed } = require('discord.js');
-const config = require('../config.json')
 
 module.exports.config = { 
     name: 'clear-list',
     aliases: ['liste-temizle']
 }
 
-module.exports.sex = async(client, message, args) => {
+module.exports.sex = async(client, message, args, config) => {
 
 if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(new MessageEmbed().setColor('RANDOM').setDescription("**❗️ - Botla aynı kanalda olmalısın!**").setTimestamp().setFooter(`${config.EmbedFooter}`));
 

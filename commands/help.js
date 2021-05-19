@@ -1,12 +1,11 @@
 const { MessageEmbed } = require('discord.js');
-const config = require('../config.json')
 
 module.exports.config = { 
      name: 'help',
      aliases: ['yardım','komutlar']
  }
  
- module.exports.sex = async(client, message, args) => {
+ module.exports.sex = async(client, message, args, config) => {
 
 message.channel.send(new MessageEmbed().setAuthor(`${message.client.user.username}`, message.client.user.avatarURL).setColor('RANDOM')
 .addField('Müzik Komutları',`

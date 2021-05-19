@@ -1,12 +1,11 @@
 const { MessageEmbed } = require('discord.js');
-const config = require('../config.json')
 
 module.exports.config = { 
     name: 'np',
     aliases: ['çalanşarkı','calansarki']
 }
 
-module.exports.sex = async(client, message, args) => {
+module.exports.sex = async(client, message, args, config) => {
 
 if (!message.member.voice.channel) return message.channel.send(new MessageEmbed().setColor('RANDOM').setDescription("**❗️ - Lütfen bir sesli kanala girin!**").setTimestamp().setFooter(`${config.EmbedFooter}`));
 
