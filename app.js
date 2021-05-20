@@ -70,7 +70,7 @@ client.player.on('error', (message, error) => { switch (error) {
   default: message.channel.send(new MessageEmbed().setColor("RANDOM").setDescription(`**❗️ - Bir şeyler ters gitti, lütfen botun sahibiyle iletişime geçin...**`).setTimestamp().setFooter(`${BotConf.EmbedFooter}`));
 }; });
 
-client.login(BotConf["Client_Token "]).catch(() => console.log("ERROR - Bota giriş yapılırken başarısız olundu."));
+client.login(BotConf["Client_Token"]).catch(() => console.log("ERROR - Bota giriş yapılırken başarısız olundu."));
 
 client
 .on('disconnect', () => console.log('ERROR - Bot is disconnecting...'))
