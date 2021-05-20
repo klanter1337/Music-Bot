@@ -1,5 +1,5 @@
 {
-  "Client_Token ":"Token",
+  "Client_Token": "Token",
   "BotPrefixes": ["!","."],
   "EmbedFooter":"Klanter ❤️",
   "CustomStatus": "hey!"
