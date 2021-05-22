@@ -17,4 +17,4 @@
 
 # Kullanım
 * komutları ve içeriklerini görmek için `prefix+help` yazabilirsin.
-![Örnek](https://i.hizliresim.com/ha3wyl.png)
+![Örnek](https://prnt.sc/139x02c)
