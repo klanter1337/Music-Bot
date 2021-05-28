@@ -32,7 +32,6 @@ client.on('message', async message => {
   let args = message.content.split(' ').slice(1);
   let command = message.content.split(' ')[0].slice(prefix.length); 
   let load = client.commands.get(command) || client.commands.get(client.aliases.get(command));
-  
   if (load){
    if (!message.member.hasPermission(8) && client.cooldown.has(message.author.id)) return message.channel.send(new MessageEmbed().setDescription('**5** Saniyede bir komut kullanabilirsin.').setFooter(BotConf.EmbedFooter).setColor('RANDOM').setTimestamp());
     client.cooldown.add(message.author.id);
