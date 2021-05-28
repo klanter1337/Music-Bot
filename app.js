@@ -3,8 +3,8 @@ const { Client, Collection, MessageEmbed, Message } = require("discord.js");
 const { readdir } = require("fs");
 const { Player } = require('discord-player');
 
-const client = new Client();
 const BotConf = require('./config.json');
+const client = new Client();
 client.cooldown = new Set();
 client.player = new Player(client);
 client.commands = new Collection();
