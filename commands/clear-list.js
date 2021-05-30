@@ -11,7 +11,7 @@ if (message.guild.me.voice.channel && message.member.voice.channel.id !== messag
 
 if (!message.member.voice.channel) return message.channel.send(new MessageEmbed().setColor('RANDOM').setDescription("**❗️ - Lütfen bir sesli kanala girin!**").setTimestamp().setFooter(`${config.EmbedFooter}`));
 
-if (!client.player.getQueue(message)) return message.channel.send(MessageEmbed().setColor('RANDOM').setDescription("**❗️ - Şu anda oynatma listesinde şarkı yok!**").setTimestamp().setFooter(`${config.EmbedFooter}`));
+if (!client.player.getQueue(message)) return message.channel.send(new MessageEmbed().setColor('RANDOM').setDescription("**❗️ - Şu anda oynatma listesinde şarkı yok!**").setTimestamp().setFooter(`${config.EmbedFooter}`));
 
 client.player.clearQueue(message).then(() => message.channel.send(new MessageEmbed().setColor('RANDOM').setAuthor(`✔️ - Oynatma listesi başarıyla temizlendi!`).setTimestamp().setFooter(`${config.EmbedFooter}`)));
 
