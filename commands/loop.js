@@ -14,8 +14,8 @@ if (!message.member.voice.channel) return message.channel.send(new MessageEmbed(
 
 if (!client.player.getQueue(message)) return message.channel.send(new MessageEmbed().setColor('RANDOM').setDescription("**❗️ - Döngüye almak için bir şarkı ekleyin!**").setTimestamp().setFooter(`${config.EmbedFooter}`));
 
-client.player.getQueue(message).repeatMode.then(repeatMode => {
+let repeatMode = lient.player.getQueue(message).repeatMode
 if (repeatMode) { client.player.setRepeatMode(message, false); return message.channel.send(new MessageEmbed().setColor('RANDOM').setAuthor(`✔️ - Döngü başarıyla **devre dışı** bırakıldı!`).setTimestamp().setFooter(`${config.EmbedFooter}`));
-   } else { client.player.setRepeatMode(message, true); return message.channel.send(new MessageEmbed().setColor('RANDOM').setAuthor(`✔️ - Döngü başarıyla **aktive** edildi!`).setTimestamp().setFooter(`${config.EmbedFooter}`)) } });
+} else { client.player.setRepeatMode(message, true); return message.channel.send(new MessageEmbed().setColor('RANDOM').setAuthor(`✔️ - Döngü başarıyla **aktive** edildi!`).setTimestamp().setFooter(`${config.EmbedFooter}`))}; 
 
 };
