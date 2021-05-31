@@ -13,7 +13,9 @@ if (!message.member.voice.channel) return message.channel.send( new MessageEmbed
 
 if (!client.player.getQueue(message)) return message.channel.send( new MessageEmbed().setColor('RANDOM').setDescription("**❗️ - Durdurmak için bir şarklı ekleyin!**").setTimestamp().setFooter(`${config.EmbedFooter}`));
     
-client.player.pause(message).then(() =>  message.channel.send(new MessageEmbed().setColor('RANDOM').setAuthor(`✔️ - ${client.player.getQueue(message).playing.title} isimli şarkı başarıyla durduruldu!`).setTimestamp().setFooter(`${config.EmbedFooter}`)));
+client.player.pause(message);
+
+message.channel.send(new MessageEmbed().setColor('RANDOM').setAuthor(`✔️ - ${client.player.getQueue(message).playing.title} isimli şarkı başarıyla durduruldu!`).setTimestamp().setFooter(`${config.EmbedFooter}`));
 
 };
 
