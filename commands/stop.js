@@ -15,6 +15,8 @@ if (!client.player.getQueue(message)) return message.channel.send(new MessageEmb
 
 client.player.setRepeatMode(message, false);
 
-client.player.stop(message).then(() => message.channel.send(new MessageEmbed().setColor("RANDOM").setAuthor(`✔️ - Şarkı başarıyla durduruldu!`).setTimestamp().setFooter(`${config.EmbedFooter}`)));
+client.player.stop(message);
+
+message.channel.send(new MessageEmbed().setColor("RANDOM").setAuthor(`✔️ - Şarkı başarıyla durduruldu!`).setTimestamp().setFooter(`${config.EmbedFooter}`));
 
 };
