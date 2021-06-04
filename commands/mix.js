@@ -13,7 +13,9 @@ module.exports.sex = async(client, message, args, config) => {
 
     if (!client.player.getQueue(message)) return message.channel.send( new MessageEmbed().setColor("RANDOM").setDescription("**❗️ - Şu anda oynatma listesinde şarkı yok!**").setTimestamp().setFooter(`${config.EmbedFooter}`));
 
-    client.player.shuffle(message).then(() => message.channel.send( new MessageEmbed().setColor("RANDOM").setAuthor(`✔️ - **${client.player.getQueue(message).tracks.length}** adet şarkı başarıyla karıştırıldı!`).setTimestamp().setFooter(`${config.EmbedFooter}`)));
+    client.player.shuffle(message);
+ 
+    message.channel.send( new MessageEmbed().setColor("RANDOM").setAuthor(`✔️ - **${client.player.getQueue(message).tracks.length}** adet şarkı başarıyla karıştırıldı!`).setTimestamp().setFooter(`${config.EmbedFooter}`));
 
 };
 
