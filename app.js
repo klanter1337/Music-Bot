@@ -60,8 +60,6 @@ client.player.on('searchResults', (message, query, tracks) =>  message.channel.s
   
 client.player.on('trackAdd', (message, track) => message.channel.send(new MessageEmbed().setColor("RANDOM").setAuthor(`✔️ - ${track.title} ismli şarkı başarıyla oynatma listesine eklendi!`).setTimestamp().setFooter(`${BotConf.EmbedFooter}`)));
 
-client.player.on('trackStart', (message, track) => message.channel.send(new MessageEmbed().setColor("RANDOM").setAuthor(`✔️ - ${track.title} isimli şarkı başarıyla ${message.member.voice.channel.name} kanalında çalıyor!`).setTimestamp().setFooter(`${BotConf.EmbedFooter}`)));
-
 client.player.on('error', (message, error) => { switch (error) {
   case 'NotPlaying': message.channel.send(new MessageEmbed().setColor("RANDOM").setDescription("**❗ - Bu sunucuda müzik çalamıyorum!**").setTimestamp().setFooter(`${BotConf.EmbedFooter}`)); break;
   case 'NotConnected': message.channel.send(new MessageEmbed().setColor("RANDOM").setDescription("**❗ - Şu anda bir sesli kanalda bulunmamaktasınız!**").setTimestamp().setFooter(`${BotConf.EmbedFooter}`)); break;
