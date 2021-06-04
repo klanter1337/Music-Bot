@@ -13,6 +13,8 @@ if (!message.member.voice.channel) return message.channel.send(new MessageEmbed(
 
 if (!client.player.getQueue(message)) return message.channel.send( new MessageEmbed().setColor("RANDOM").setDescription("**❗️ - Şu anda oynatma listesinde şarkı yok!**").setTimestamp().setFooter(`${config.EmbedFooter}`));
 
-client.player.skip(message).then(() => message.channel.send(new MessageEmbed().setColor("RANDOM").setAuthor(`✔️ - Oynatılan şarkı başarıyla geçildi.`).setTimestamp().setFooter(`${config.EmbedFooter}`)));
+client.player.skip(message);
+
+message.channel.send(new MessageEmbed().setColor("RANDOM").setAuthor(`✔️ - Oynatılan şarkı başarıyla geçildi.`).setTimestamp().setFooter(`${config.EmbedFooter}`));
 
 };
