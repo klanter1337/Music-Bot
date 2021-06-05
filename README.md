@@ -6,7 +6,7 @@
   * `Client_Token`: Botunuzun tokeni Discord developer portaldan alabilirsiniz.
   * `BotPrefixes`: Botunuzun prefixleri yani komutları çalıştırmak için mesajın başına koyulması ihtiyaç olan ön ek.
   * `EmbedFooter` Embedlerin altında yazan minik yazı. 
-  * `Custom_Status_Type`  Botunuzun özel durumunda yazan yaz.
+  * `Custom_Status_Type`  Botunuzun özel durumunda yazan yazı.
 
 * Hepsini Doldurup kaydettikden sonra botun klasörüne geri gelin.
 * `install modules.bat` adlı dosyayı çalıştırın ve modüllerin inmesini bekleyin indiği zaman kendi otomatik kapanacaktır.
